@@ -1,12 +1,22 @@
-# Ejercicio 1: Desarrollar una función que pida 10 nombres de manera secuencial, los 
-# guarde en una lista y la retorne. El programa principal debe invocar a la función y
-# mostrar por pantalla el retorno.
+# Ejercicio 1: Dadas las siguientes listas:
+# Nombres = ["Ana","Luis","Juan","Sol","Roberto","Sonia","Ulises","Sofia","Maria","Pedro","Antonio", "Eugenia", "Soledad", "Mario", "Mariela"]
+# Edades = [23,45,34,23,46,23,45,67,37,68,25,55,45,27,43]
+# Desarrollar una función que realice el ordenamiento de las listas por nombre de manera ascendente.
 
-nombres = [0] * 10
+Nombres = ["Ana","Luis","Juan","Sol","Roberto","Sonia","Ulises","Sofia","Maria","Pedro","Antonio", "Eugenia", "Soledad", "Mario", "Mariela"]
+Edades = [23,45,34,23,46,23,45,67,37,68,25,55,45,27,43]
 
-def pedir_nombres():
-    for i in range (10):
-        nombres[i] = input("Indique su nombre y apellido: ")
-    return nombres
+def ordenar_alfabeticamente(lista:list, lista2:list):
+    for i in range(len(lista)-1):
+        for j in range(i+1, len(lista)):
+            if(lista[i] > lista[j]):
+                aux = lista[i]
+                lista[i] = lista[j]
+                lista[j] = aux
+                aux2 = lista2[i]
+                lista2[i] = lista2[j]
+                lista2[j] = aux2
+    return lista, lista2
 
-print(pedir_nombres())
+print(ordenar_alfabeticamente(Nombres, Edades))
+      
