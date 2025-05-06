@@ -1,16 +1,30 @@
-# Ejercicio 2: Desarrollar una función que inicialice una lista de 10 números en 0, pida 
-# posición y número a guardar al usuario, lo guarde en una lista en la posición 
-# solicitada aleatoriamente y la retorne. El programa principal debe invocar a la 
-# función y mostrar por pantalla el retorno.
+# Ejercicio 2: Dadas las siguientes listas:
+# Nombres = ["Matematica","Investigacion Operativa","Ingles","Literatura","Ciencias 
+# Sociales","Computacion","Ingles","Algebra","Contabilidad","Artistica", "Algoritmos", 
+# "Base de Datos", "Ergonomia", "Naturaleza"]
+# Puntos = [100,98,56,25,87,38,64,42,28,91,66,35,49,57,98]
+# Desarrollar una función que realice el ordenamiento de las listas por nombre de 
+# manera ascendente, si el nombre es el mismo, debe ordenar por puntos de manera 
+# descendente.
 
-numeros = [0] * 10
+Nombres = ["Matematica","Investigacion Operativa","Ingles","Literatura","Ciencias Sociales","Computacion","Ingles","Algebra","Contabilidad","Artistica", "Algoritmos", "Base de Datos", "Ergonomia", "Naturaleza"]
+Puntos = [100,98,56,25,87,38,64,42,28,91,66,35,49,57,98]
 
-def cargar_numeros():
-    for i in range(10):
-        posicion = int(input("Indique la posición en la que desea guardar el número: "))
-        numeros[posicion] = int(input("Indique el número a guardar: "))
-        print(f"Número guardado correctamente: {numeros[posicion]}")
-    return (f"La lista de números ingresados es: {numeros}")
-
-                
-print(cargar_numeros())
+def ordenar_puntos(nombres:list, puntos:list):
+    for i in range(len(nombres)-1):
+        for j in range(i+1, (len(nombres))):
+            if (nombres[i] > nombres[j]):
+                aux = nombres[i]
+                nombres[i] = nombres[j]
+                nombres[j] = aux
+                aux2 = puntos[i]
+                puntos[i] = puntos[j]
+                puntos[j] = aux2
+            if nombres[i] == nombres[j]:
+                if puntos[i] < puntos[j]:
+                    aux3 = puntos[i]
+                    puntos[i] = puntos[j]
+                    puntos[j] = aux3
+    return nombres, puntos
+    
+print(ordenar_puntos(Nombres, Puntos))
